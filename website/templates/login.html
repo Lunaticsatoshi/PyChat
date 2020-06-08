@@ -1,96 +1,122 @@
-
 {% extends "base.html" %}
 
 {% block title %}Login{% endblock %}
 
 {% block messages %}
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-            {% for message in messages %}
-              {% set display = slice(message, "1:") %}
-              {% set prefix = slice[0] %}
-              {% if prefix == "1" %}
-                <div class="alert alert-secondary" role="alert">
-                {{ display }}
-                </div>
-              {% else %}
-                <div class="alert alert-danger" role="alert">
-                {{ display }}
-                </div>
-              {% endif %}
-            {% endfor %}
-      {% endif %}
-    {% endwith %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+{% set display = slice(message, "1:") %}
+{% set prefix = slice[0] %}
+{% if prefix == "1" %}
+<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+  {{ display }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% else %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{ display }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
 {% endblock %}
 
 {% block content %}
 <style type="text/css">
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+  @import url(https://fonts.googleapis.com/css2?family=Muli:ital,wght@0,600;1,500&display=swap);
 
-.login {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
-}
-.form {
-  position: relative;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-.form input {
-  font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-.form button {
-  text-transform: uppercase;
-  outline: 0;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-}
-.form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
-}
-.form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
-}
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-.container:before, .container:after {
-  content: "";
-  display: block;
-  clear: both;
-}
+  body {
+    background-color: black;
+  }
 
+  .login {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+
+  .form input {
+    font-family: 'Muli', sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    font-size: 14px;
+  }
+
+  .form button {
+    text-transform: uppercase;
+    outline: 0;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    border-radius: 25px;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    background: #FF0000;
+    cursor: pointer;
+  }
+
+  .form button:hover,
+  .form button:active,
+  .form button:focus {
+    background: #FF0000;
+  }
+
+  .form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .container:before,
+  .container:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
 </style>
 
 <div class="login">
+  <h1> A Place to Meet New People And Talk Your Ends Out</h1>
   <div class="form">
     <form class="login-form" action="#" method="POST">
-      <input type="text" name="inputName" id="inputName" placeholder="Your Name"/>
+      <input type="text" name="myName" id="myName" placeholder="Enter Your Name" />
+      <input type="text" name="inputName" id="inputName" placeholder="Enter Your Placeholder Name" />
       <button type="submit" class="btn btn-success mb-2">Submit</button>
     </form>
   </div>

@@ -16,7 +16,7 @@ def handle_event(json, methods = ['GET', 'POST']):
     data = dict(json)
     if "name" in data:
         db = DataBase()
-        db.save_messages(data["name"], data["messages"])
+        db.save_messages(data["name"], data["message"])
 
     socketio.emit("message response", json)
 

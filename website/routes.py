@@ -69,7 +69,7 @@ def get_name():
     return the name of the logged in user as json object 
     """
     data = {"name": ""}
-    if NAME_KEY not in session:
+    if NAME_KEY in session:
         data = {"name": session[NAME_KEY]}
     return jsonify(data)
 
