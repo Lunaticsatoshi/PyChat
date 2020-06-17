@@ -36,12 +36,33 @@
     background-color: black;
   }
 
+  h1 {
+    color: #FFFFFF;
+    align-items: center;
+  }
+
+
+  h3 {
+    color: #FF0000;
+    font-size: 40px;
+    font-weight: 400;
+  }
+
   .login {
     width: 360px;
     padding: 8% 0 0;
     margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
   }
 
   .form {
@@ -111,14 +132,19 @@
   }
 </style>
 
-<div class="login">
-  <h1> A Place to Meet New People And Talk Your Ends Out</h1>
-  <div class="form">
-    <form class="login-form" action="#" method="POST">
-      <input type="text" name="myName" id="myName" placeholder="Enter Your Name" />
-      <input type="text" name="inputName" id="inputName" placeholder="Enter Your Placeholder Name" />
-      <button type="submit" class="btn btn-success mb-2">Submit</button>
-    </form>
+<div class="header">
+  <div class="header-title">
+    <h1> A Place to Meet New People And Talk Your Ends Out</h1>
+  </div>
+  <div class="login">
+    <h3>Login</h3>
+    <div class="form">
+      <form class="login-form" action="#" method="POST">
+        <input type="text" name="myName" id="myName" placeholder="Enter Your Name" />
+        <input type="text" name="inputName" id="inputName" placeholder="Enter Your Placeholder Name" />
+        <button type="submit" class="btn btn-success mb-2">Submit</button>
+      </form>
+    </div>
   </div>
 </div>
 

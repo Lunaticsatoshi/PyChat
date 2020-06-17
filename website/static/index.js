@@ -132,13 +132,13 @@ async function add_messages(msg, scroll){
     })
   
   window.onload = async function() {
-    var msgs = await load_messages()
+/*     var msgs = await load_messages()
     for (i = 0; i < msgs.length; i++){
       scroll = false
       if (i == msgs.length-1) {scroll = true}
       add_messages(msgs[i], scroll)
     }
-  
+   */
     let name = await load_name()
     if (name != ""){
       $("#login").hide();
